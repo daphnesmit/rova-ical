@@ -1,0 +1,58 @@
+{
+  "name": "rova-ical",
+  "version": "1.0.0",
+  "description": "An iCal server for the Rova trash pickup calendar",
+  "keywords": [
+    "rova",
+    "ical",
+    "trash",
+    "calendar"
+  ],
+  "homepage": "https://github.com/daphnesmit/rova-ical",
+  "bugs": {
+    "url": "https://github.com/daphnesmit/rova-ical/issues"
+  },
+  "author": "Daphne Smit <daphnesmit1986@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daphnesmit/rova-ical.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/index.js",
+      "default": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "lint": "tsc",
+    "format": "prettier --write .",
+    "check-format": "prettier --check .",
+    "check-exports": "attw --pack .",
+    "dev": "nodemon",
+    "serve": "npm run build && node dist/index.js",
+    "build": "tsup",
+    "ci": "npm run build && npm run check-format && npm run check-exports && npm run lint"
+  },
+  "dependencies": {
+    "@koa/router": "^13.0.0",
+    "axios": "^1.7.5",
+    "ical-generator": "^8.0.0",
+    "koa": "^2.15.3"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.15.4",
+    "@types/koa__router": "^12.0.4",
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
+  }
+}
