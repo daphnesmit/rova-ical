@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "lib": ["es2022"],
+    "lib": ["esnext", "dom"],
     /* Base Options: */
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -9,7 +9,7 @@
     "resolveJsonModule": true,
     "moduleDetection": "force",
     "isolatedModules": true,
-    "verbatimModuleSyntax": true,
+    "moduleResolution": "NodeNext",
 
     /* Strictness */
     "strict": true,
@@ -17,7 +17,7 @@
     "noImplicitOverride": true,
 
     /* If transpiling with TypeScript: */
-    "module": "Preserve",
+    "module": "NodeNext",
     "noEmit": true
   }
 }

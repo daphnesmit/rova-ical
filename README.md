@@ -1,6 +1,6 @@
 # Rova iCal Generator
 
-This project is an Express.js server that dynamically generates and serves iCalendar (`.ics`) files for waste collection schedules of the Rova. The calendar data is fetched from the [ROVA API](https://www.rova.nl/) based on user-provided postal codes and house numbers. Users can download and import the generated `.ics` files into their calendar applications (e.g., Google Calendar, Apple Calendar) to receive reminders about upcoming waste collection events. 
+This project is an Express.js server that dynamically generates and serves iCalendar (`.ics`) files for waste collection schedules of the Rova. The calendar data is fetched from the [ROVA API](https://www.rova.nl/) based on user-provided postal codes and house numbers. Users can download and import the generated `.ics` files into their calendar applications (e.g., Google Calendar, Apple Calendar) to receive reminders about upcoming waste collection events.
 
 ## Features
 
