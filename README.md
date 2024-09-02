@@ -4,6 +4,13 @@ This project is an Express.js server that dynamically generates and serves iCale
 
 The Rova iCal uses Vercel Serverless Functions to develop and deploy the API.
 
+## Usage 
+If you're not looking to develop on the ROVA iCal Generator but simply want to stay informed about when to put your bin out, you can easily subscribe to the calendar. Just enter your details into the production URL and use that URL to subscribe in your favorite calendar app:
+
+```bash
+https://rova-ical.vercel.app/api?postalcode=1234AV&housenumber=10&addition=b
+````
+
 ## Features
 
 - **Dynamic iCalendar Generation**: Generates personalized `.ics` files based on the user's postal code and house number.
