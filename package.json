@@ -33,7 +33,6 @@
     "ical-generator": "^8.0.0"
   },
   "devDependencies": {
-    "@vercel/functions": "^1.4.1",
     "prettier": "^3.3.3",
     "typescript": "^5.5.4"
   }

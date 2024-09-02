@@ -2,12 +2,14 @@
 
 This project is an Express.js server that dynamically generates and serves iCalendar (`.ics`) files for waste collection schedules of the Rova. The calendar data is fetched from the [ROVA API](https://www.rova.nl/) based on user-provided postal codes and house numbers. Users can download and import the generated `.ics` files into their calendar applications (e.g., Google Calendar, Apple Calendar) to receive reminders about upcoming waste collection events.
 
+The Rova iCal uses Vercel Serverless Functions to develop and deploy the API.
+
 ## Features
 
 - **Dynamic iCalendar Generation**: Generates personalized `.ics` files based on the user's postal code and house number.
 - **Automatic Reminders**: Includes built-in notifications for users, reminding them 2 days and 1 day before a waste collection event.
 - **TypeScript**: The project is written in TypeScript, ensuring type safety, better code maintainability, and reduced runtime errors.
-- **REST API**: The iCalendar file is served via a simple REST API, making it easy to integrate into other services or applications.
+- **Vercel Serverless Finctions**: The iCalendar file is served via Vercel Serverless Functions. So no need for a custom server or build.
 
 ## Installation
 
@@ -22,11 +24,11 @@ This project is an Express.js server that dynamically generates and serves iCale
    ```
 3. **Build the project**
    ```bash
-    npm run build
+    npm i vercel -g
    ```
-4. **Run the server**
+4. **Run the dev server**
    ```bash
-    npm start
+    vercel dev
    ```
 
 ## Usage
@@ -34,7 +36,7 @@ This project is an Express.js server that dynamically generates and serves iCale
 Once the server is running, users can generate their own waste collection calendar by accessing the following URL:
 
 ```bash
- http://localhost:3000/calendar.ics?postalcode=<POSTAL_CODE>&housenumber=<HOUSE_NUMBER>&addition==<HOUSE_NUMBER_ADDITION>
+ http://localhost:3000/api?postalcode=<POSTAL_CODE>&housenumber=<HOUSE_NUMBER>&addition==<HOUSE_NUMBER_ADDITION>
 ```
 
 Replace <POSTAL_CODE>, <HOUSE_NUMBER> and <HOUSE_NUMBER_ADDITION> with the user's actual postal code, house number and house number addition.
@@ -44,12 +46,8 @@ Replace <POSTAL_CODE>, <HOUSE_NUMBER> and <HOUSE_NUMBER_ADDITION> with the user'
 To generate a calendar for postal code 8043AT and house number 30, the URL would be:
 
 ```bash
-http://localhost:3000/calendar.ics?postalcode=8043AT&housenumber=30
+http://localhost:3000/api?postalcode=8043AT&housenumber=30
 ```
-
-## Configuration
-
-- Port: By default, the server runs on port 3000. You can change this by modifying the app.listen function in the src/index.ts file.
 
 ## Development
 
@@ -57,45 +55,38 @@ http://localhost:3000/calendar.ics?postalcode=8043AT&housenumber=30
 
 - Node.js (v20.x or higher)
 - npm
-
-### Building the Project
-
-To compile the TypeScript code into JavaScript, run:
-
-```bash
-npm run build
-```
-
-The compiled code will be located in the dist directory.
+- Vercel CLI
 
 ### Running in Development Mode
 
 You can run the project in development mode, which will automatically recompile the TypeScript code when changes are made:
 
 ```bash
-npm run dev
+vercel dev
 ```
 
-### Running in Production Mode
+### Deploying the project
 
-You can run the project in prod mode, this will build the project and start up a node server for dist/index.js:
+You can deploy the project to vercel by running:
 
 ```bash
-npm run serve
+vercel
 ```
 
-### Linting and Formatting
+or for production:
 
-The project includes ESLint and Prettier for code linting and formatting. You can run these tools with the following commands:
+```bash
+vercel --prod
+```
+
+### Linting the Project
+
+The project includes tsc and Prettier for code linting and formatting. You can run these tools with the following commands:
 
 ```bash
 npm run lint
 npm run format
 ```
-
-## Deployment
-
-To deploy this project, ensure your environment can run Node.js applications. Once deployed, users can generate their .ics files by accessing the corresponding URL with their postal code and house number.
 
 ## License
 
